@@ -47,3 +47,34 @@ const orderList = (array, key, status) => {
     }
   });
 };
+document.getElementById("formToDo").addEventListener("submit", saveTodo);
+
+function saveTodo(event) {
+  event.preventDefault();
+
+  const todo = {
+    id: todoList.length + 1,
+    description: event.target.elements.description.value,
+    dueDate: event.target.elements.dueDate.value,
+    creationDate: dateNow(),
+    priority: event.target.elements.priority.checked,
+    complete: false
+  };
+
+  todoList.push(todo);
+
+  console.log(todo);
+  console.log(todoList);
+  document.getElementById("formToDo").reset();
+}
+
+function dateNow() {
+  const now = new Date();
+  return (
+    now.getFullYear() +
+    "-" +
+    ("0" + (now.getMonth() + 1)).slice(-2) +
+    "-" +
+    now.getDate()
+  );
+}
