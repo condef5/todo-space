@@ -1,11 +1,12 @@
-const todoModel = {
-  id,
-  description,
-  creationDate,
-  dueDate,
-  priority,
-  complete
-};
+// const todoModel = {
+//   id,
+//   description,
+//   creationDate,
+//   dueDate,
+//   priority,
+//   complete
+// };
+
 
 const todoList = [
   {
@@ -33,3 +34,16 @@ const todoList = [
     complete: false
   }
 ];
+
+
+const orderList = (array, key, status) => {
+  return array.sort(function(a, b) {
+    if (key == "creationDate" || key == "dueDate") {
+      return status == 1
+        ? new Date(b[key]) - new Date(a[key])
+        : new Date(a[key]) - new Date(b[key]);
+    } else {
+      return status == 1 ? b[key] - a[key] : a[key] - b[key];
+    }
+  });
+};
