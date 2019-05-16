@@ -7,38 +7,36 @@
 //   complete
 // };
 
-
 const todoList = [
   {
     id: 1,
-    description: "Sleep early",
-    creationDate: "2019-05-12",
-    dueDate: "2019-05-12",
+    description: 'Sleep early',
+    creationDate: '2019-05-12',
+    dueDate: '2019-05-12',
     priority: true,
     complete: true
   },
   {
     id: 2,
-    description: "Go to bootcamp",
-    creationDate: "2019-05-12",
-    dueDate: "2019-05-17",
+    description: 'Go to bootcamp',
+    creationDate: '2019-05-12',
+    dueDate: '2019-05-17',
     priority: true,
     complete: false
   },
   {
     id: 3,
-    description: "Study ReactJS",
-    creationDate: "2019-05-12",
-    dueDate: "2019-05-19",
+    description: 'Study ReactJS',
+    creationDate: '2019-05-12',
+    dueDate: '2019-05-19',
     priority: true,
     complete: false
   }
 ];
 
-
 const orderList = (array, key, status) => {
   return array.sort(function(a, b) {
-    if (key == "creationDate" || key == "dueDate") {
+    if (key == 'creationDate' || key == 'dueDate') {
       return status == 1
         ? new Date(b[key]) - new Date(a[key])
         : new Date(a[key]) - new Date(b[key]);
@@ -47,7 +45,6 @@ const orderList = (array, key, status) => {
     }
   });
 };
-document.getElementById("formToDo").addEventListener("submit", saveTodo);
 
 function saveTodo(event) {
   event.preventDefault();
@@ -65,16 +62,38 @@ function saveTodo(event) {
 
   console.log(todo);
   console.log(todoList);
-  document.getElementById("formToDo").reset();
+
+  document.getElementById('formToDo').reset();
+  showHtml(todoList);
 }
 
 function dateNow() {
   const now = new Date();
   return (
     now.getFullYear() +
-    "-" +
-    ("0" + (now.getMonth() + 1)).slice(-2) +
-    "-" +
+    '-' +
+    ('0' + (now.getMonth() + 1)).slice(-2) +
+    '-' +
     now.getDate()
   );
 }
+
+function showHtml(arr) {
+  let html = '';
+  arr.forEach((task) => {
+    html += `
+      <tr>
+        <td>${task.id}</td>
+        <td>${task.description}</td>
+        <td>${task.dueDate}</td>
+        <td>${task.creationDate}</td>
+        <td>${task.priority}</td>
+        <td>${task.complete}</td>
+      </tr>
+    `;
+  });
+  document.getElementById('todoHtml').innerHTML = html;
+}
+
+document.getElementById('formToDo').addEventListener('submit', saveTodo);
+showHtml(todoList);

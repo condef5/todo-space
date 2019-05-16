@@ -1,9 +1,13 @@
 body {
   margin: 0 auto;
+  max-width: 1000px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-content: center;
   justify-content: center;
-  
+}
 
+table {
+  text-align: center;
+  margin: 1em 0;
 }
