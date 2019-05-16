@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Todo-Space</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <script src="js/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Todo-Space</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div>
+      <h1>TO-DO LIST</h1>
+    </div>
+  </header>
+  <form action="" id="formToDo">
+    <label for="description">Description</label><br>
+    <input type="text">
+    <label for="dueDate">Due date</label>
+    <input type="text" type="date" name="dueDate">
+    <label for="priority">Priority</label>
+    <input type="text" type="checkbox" name="priority">
+    <input type="submit" value="Add Todo">
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>DESCRIPTION</th>
+        <th>DUE DATE</th>
+        <th>CREATION DATE</th>
+        <th>PRIORITY</th>
+        <th>COMPLETE</th>
+      </tr>
+    </thead>
+    <tbody id='todoHtml'>
+    </tbody>
+  </table>
+
+
+
+  <script src="js/main.js"></script>
+</body>
 </html>
