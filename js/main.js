@@ -7,6 +7,7 @@
 //   complete
 // };
 
+
 const todoList = [
   {
     id: 1,
@@ -33,6 +34,7 @@ const todoList = [
     complete: false
   }
 ];
+
 
 const orderList = (array, key, status) => {
   return array.sort(function(a, b) {
