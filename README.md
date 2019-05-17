@@ -14,3 +14,7 @@
 - Users can mark a task as complete.
 - Users can sort the list of tasks in ascending and descending alphabetical order, by due date, by creation date, and as optional by priority first.
 - Users can mark a task as a priority task.
+
+## Proposed Design
+
+![Mockup for app](./img/mockup.png)
