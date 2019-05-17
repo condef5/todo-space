@@ -1,5 +1,5 @@
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -122,7 +122,7 @@ thead .sorting {
 
 .slider:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 26px;
   width: 26px;
   left: 4px;
@@ -145,4 +145,35 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.options {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.dots {
+  text-shadow: 2px 2px transparent;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.dots:hover {
+  cursor: pointer;
+  text-shadow: 2px 2px #0076ff;
+}
+
+.dropdown-menu {
+  list-style: none;
+  font-size: 0.5em;
+  padding: 0;
+  margin: 15px;
+}
+
+.sorting:hover {
+  cursor: pointer;
+  background: #ddd;
 }
