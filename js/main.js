@@ -123,6 +123,15 @@ function showHtml(arr) {
   document.getElementById('todoList').innerHTML = html;
 }
 
+function searchById(id) {
+  // return element position on Array
+  let obj = todoList.find(o => o.id === parseInt(id));
+  if (obj >= 0) {
+    return todoList.indexOf(obj)
+  }
+  return { message: 'Element not in Array.'};
+}
+
 function taskEdit(id) {
   // requires to change submit button behavior from save new input to delete
   // better avoid delete
@@ -130,9 +139,8 @@ function taskEdit(id) {
 
 function taskDelete(id) {
   // look for required element in array
-  let obj = todoList.find(o => o.id === parseInt(id));
   // delete required element after getting its index
-  todoList.splice(todoList.indexOf(obj), 1);
+  todoList.splice(searchById(obj), 1);
   showHtml(todoList);
 }
 
