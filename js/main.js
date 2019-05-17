@@ -72,64 +72,48 @@ function dateNow() {
     now.getDate()
   );
 }
-/*
+
 function showHtml(arr) {
   let html = '';
-  arr.forEach((task) => {
-    html += `
-      <tr>
-        <td>${task.id}</td>
-        <td>${task.description}</td>
-        <td>${task.dueDate}</td>
-        <td>${task.creationDate}</td>
-        <td>${task.priority}</td>
-        <td>${task.complete}</td>
-      </tr>
-    `;
-  });
-  document.getElementById('todoHtml').innerHTML = html;
-}
-*/
-// new function, add content in ul#todoList
-function showHtml(arr) {
-  let html = `<li>
-  <span>Complete</span>
-  <span>Description</span>
-  <span>Due Date</span>
-  <span>Priority</span>
-  <span>Tools</span>
-</li>`;
+
   arr.forEach(task => {
     html += `
-    <li>
-      <span class="taskComplete">${
-        task.complete == 1
-          ? '<input type="checkbox" class="taskComplete" checked>'
-          : '<input type="checkbox" class="taskComplete">'
-      }</span>
-      <span class="taskDescription">${task.description}</span>
-      <span class="dueDate">${task.dueDate}</span>
-      <span class="priority">${
-        task.priority == 1
-          ? '<input type="checkbox" class="taskPriority" checked>'
-          : '<input type="checkbox" class="taskPriority">'
-      }</span>
-      <span class="taskTools"><a href="#" onclick="taskDelete(${
-        task.id
-      })">&#128465;</a></span>
-    </li>
+      <li class="todo__item">
+        <div>
+          <input 
+            type="checkbox" 
+            class="taskComplete" 
+            ${task.complete && 'checked'}
+          >
+        </div>
+        <div>${task.description}</div>
+        <div>${task.dueDate}</div>
+        <div>
+          <input 
+            type="checkbox" 
+            class="taskPriority" 
+            ${task.priority && 'checked'}
+          >
+        </div>
+        <div>
+          <span class="taskTools">
+            <a href="#" onclick="taskDelete(${task.id})">&#128465;</a>
+          </span>
+        </div>
+      </li>
     `;
   });
-  document.getElementById('todoList').innerHTML = html;
+  
+  document.getElementById('todoHtml').innerHTML = html;
 }
 
 function searchById(id) {
   // return element position on Array
   let obj = todoList.find(o => o.id === parseInt(id));
   if (obj >= 0) {
-    return todoList.indexOf(obj)
+    return todoList.indexOf(obj);
   }
-  return { message: 'Element not in Array.'};
+  return { message: 'Element not in Array.' };
 }
 
 function taskEdit(id) {

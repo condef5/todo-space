@@ -6,40 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Todo-Space</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header>
-      <div>
-        <h1>TO-DO LIST</h1>
-      </div>
+      <h1>To Do App</h1>
     </header>
-    <form action="" id="formToDo">
-      <label for="description">Description</label>
-      <input type="text" name="description" />
-      <label for="dueDate">Due date</label>
-      <input type="date" name="dueDate" />
-      <label for="priority">Priority</label>
-      <input type="checkbox" name="priority" />
-      <input type="submit" value="Add ToDo" />
-    </form>
 
-    <ul id="todoList">
-      
-    </ul>
-<!--     
-      <thead>
-        <tr>
-          <th>#</th>
-          <th class="sorting" data-sort="description">DESCRIPTION</th>
-          <th class="sorting" data-sort="dueDate">DUE DATE</th>
-          <th class="sorting" data-sort="creationDate">CREATION DATE</th>
-          <th class="sorting" data-sort="priority">PRIORITY</th>
-          <th class="sorting" data-sort="complete">COMPLETE</th>
-        </tr>
-      </thead>
-      <tbody id="todoHtml"></tbody>
-    </table> -->
+    <main>
+      <form id="formToDo">
+        <div class="row">
+          <div class="field description">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              class="field__input"
+              name="description"
+              id="description"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="dueDate">Due date</label>
+            <input
+              type="date"
+              class="field__input"
+              name="dueDate"
+              required
+              id="dueDate"
+            />
+          </div>
+          <div class="field">
+            <div>Priority</div>
+            <label class="switch">
+              <input type="checkbox" name="priority" id="priority" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="field text-right">
+          <button class="field__button" type="submit" value="Add Todo">
+            Add Tasks
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <div class="todo__header">
+      <div>Complete</div>
+      <div>Description</div>
+      <div>Due Date</div>
+      <div>priority</div>
+      <div>Options</div>
+    </div>
+    <ul class="todo" id="todoHtml"></ul>
 
     <script src="js/main.js"></script>
   </body>
