@@ -1,25 +1,16 @@
-// const todoModel = {
-//   id,
-//   description,
-//   creationDate,
-//   dueDate,
-//   priority,
-//   complete
-// };
-
 const todoList = [
   {
     id: 1,
     description: 'Sleep early',
     creationDate: '2019-05-12',
-    dueDate: '2019-05-12',
+    dueDate: '2019-05-10',
     priority: true,
     complete: true
   },
   {
     id: 2,
     description: 'Go to bootcamp',
-    creationDate: '2019-05-12',
+    creationDate: '2019-05-13',
     dueDate: '2019-05-17',
     priority: true,
     complete: false
@@ -27,7 +18,7 @@ const todoList = [
   {
     id: 3,
     description: 'Study ReactJS',
-    creationDate: '2019-05-12',
+    creationDate: '2019-05-15',
     dueDate: '2019-05-19',
     priority: true,
     complete: false
@@ -35,13 +26,13 @@ const todoList = [
 ];
 
 const orderList = (array, key, status) => {
-  return array.sort(function(a, b) {
+  return array.sort((a, b) => {
     if (key == 'creationDate' || key == 'dueDate') {
       return status == 1
         ? new Date(b[key]) - new Date(a[key])
         : new Date(a[key]) - new Date(b[key]);
     } else {
-      return status == 1 ? b[key] - a[key] : a[key] - b[key];
+      return (a[key] < b[key] ? -1 : 1) * status;
     }
   });
 };
@@ -59,9 +50,6 @@ function saveTodo(event) {
   };
 
   todoList.push(todo);
-
-  console.log(todo);
-  console.log(todoList);
 
   document.getElementById('formToDo').reset();
   showHtml(todoList);
@@ -97,3 +85,18 @@ function showHtml(arr) {
 
 document.getElementById('formToDo').addEventListener('submit', saveTodo);
 showHtml(todoList);
+
+const sort = {
+  filter: '',
+  status: 1
+};
+
+document.querySelectorAll('.sorting').forEach((item) => {
+  item.addEventListener('click', (e) => {
+    console.log(e.target.dataset.sort);
+    if (sort.filter == e.target.dataset.sort) sort.status = sort.status * -1;
+    sort.filter = e.target.dataset.sort;
+    const list = orderList(todoList, sort.filter, sort.status);
+    showHtml(list);
+  });
+});
