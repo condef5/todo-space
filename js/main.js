@@ -140,7 +140,7 @@ function taskEdit(id) {
 function taskDelete(id) {
   // look for required element in array
   // delete required element after getting its index
-  todoList.splice(searchById(obj), 1);
+  todoList.splice(searchById(id), 1);
   showHtml(todoList);
 }
 
