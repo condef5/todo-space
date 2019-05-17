@@ -25,7 +25,14 @@ const todoList = [
   }
 ];
 
-const orderList = (array, key, status) => {
+// filter => propiedad del objeto ToDo para ordenar
+// status => 1 ordena de manera ascendente y -1 ordena de forma descendente
+const sort = {
+  filter: '',
+  status: 1
+};
+
+function orderList(array, key, status) {
   return array.sort((a, b) => {
     if (key == 'creationDate' || key == 'dueDate') {
       return status == 1
@@ -35,7 +42,7 @@ const orderList = (array, key, status) => {
       return (a[key] < b[key] ? -1 : 1) * status;
     }
   });
-};
+}
 
 function saveTodo(event) {
   event.preventDefault();
@@ -84,12 +91,6 @@ function showHtml(arr) {
 }
 
 document.getElementById('formToDo').addEventListener('submit', saveTodo);
-showHtml(todoList);
-
-const sort = {
-  filter: '',
-  status: 1
-};
 
 document.querySelectorAll('.sorting').forEach((item) => {
   item.addEventListener('click', (e) => {
@@ -100,3 +101,6 @@ document.querySelectorAll('.sorting').forEach((item) => {
     showHtml(list);
   });
 });
+
+// show list ToDo in html
+showHtml(todoList);
