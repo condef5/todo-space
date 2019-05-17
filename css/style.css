@@ -35,6 +35,8 @@ h1 {
   display: flex;
   padding: 16px 0;
   justify-content: space-between;
+  text-align: center;
+  word-break: break-all;
 }
 
 .todo__item > div,
