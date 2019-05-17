@@ -12,7 +12,7 @@ const todoList = [
     description: 'Go to bootcamp',
     creationDate: '2019-05-13',
     dueDate: '2019-05-17',
-    priority: true,
+    priority: false,
     complete: false
   },
   {
@@ -72,7 +72,7 @@ function dateNow() {
     now.getDate()
   );
 }
-
+/*
 function showHtml(arr) {
   let html = '';
   arr.forEach((task) => {
@@ -89,11 +89,57 @@ function showHtml(arr) {
   });
   document.getElementById('todoHtml').innerHTML = html;
 }
+*/
+// new function, add content in ul#todoList
+function showHtml(arr) {
+  let html = `<li>
+  <span>Complete</span>
+  <span>Description</span>
+  <span>Due Date</span>
+  <span>Priority</span>
+  <span>Tools</span>
+</li>`;
+  arr.forEach(task => {
+    html += `
+    <li>
+      <span class="taskComplete">${
+        task.complete == 1
+          ? '<input type="checkbox" class="taskComplete" checked>'
+          : '<input type="checkbox" class="taskComplete">'
+      }</span>
+      <span class="taskDescription">${task.description}</span>
+      <span class="dueDate">${task.dueDate}</span>
+      <span class="priority">${
+        task.priority == 1
+          ? '<input type="checkbox" class="taskPriority" checked>'
+          : '<input type="checkbox" class="taskPriority">'
+      }</span>
+      <span class="taskTools"><a href="#" onclick="taskDelete(${
+        task.id
+      })">&#128465;</a></span>
+    </li>
+    `;
+  });
+  document.getElementById('todoList').innerHTML = html;
+}
+
+function taskEdit(id) {
+  // requires to change submit button behavior from save new input to delete
+  // better avoid delete
+}
+
+function taskDelete(id) {
+  // look for required element in array
+  let obj = todoList.find(o => o.id === parseInt(id));
+  // delete required element after getting its index
+  todoList.splice(todoList.indexOf(obj), 1);
+  showHtml(todoList);
+}
 
 document.getElementById('formToDo').addEventListener('submit', saveTodo);
 
-document.querySelectorAll('.sorting').forEach((item) => {
-  item.addEventListener('click', (e) => {
+document.querySelectorAll('.sorting').forEach(item => {
+  item.addEventListener('click', e => {
     console.log(e.target.dataset.sort);
     if (sort.filter == e.target.dataset.sort) sort.status = sort.status * -1;
     sort.filter = e.target.dataset.sort;
