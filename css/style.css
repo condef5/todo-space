@@ -89,11 +89,6 @@ h1 {
   text-align: right;
 }
 
-table {
-  text-align: center;
-  margin: 1em 0;
-}
-
 thead .sorting {
   background-image: url(../img/sort_both.png);
   background-repeat: no-repeat;
