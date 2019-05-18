@@ -19,6 +19,10 @@ h1 {
   padding-bottom: 5px;
 }
 
+main {
+  margin: 4% 0px;
+}
+
 #formToDo {
   padding-bottom: 30px;
 }
@@ -52,11 +56,20 @@ h1 {
   }
   body {
     padding: 0 3%;
+
+    font-size: 10px;
   }
   .field__input {
     background-color: blue;
     width: 60%;
     padding: 0.5em 0.25em;
+  }
+  .field__button{
+    padding: 0.25em 0.5em;
+    border: none;
+    background-color: red;
+    color: white;
+
   }
 }
 
