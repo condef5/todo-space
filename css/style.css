@@ -221,3 +221,16 @@ input:checked + .slider:before {
   text-align: center;
   border: 1px solid #ddd;
 }
+
+.active {
+  background-color: #cfc7c757;
+  transition: all 0.3s;
+}
+
+.card {
+  padding: 10px 5px;
+  margin-bottom: 2em;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
