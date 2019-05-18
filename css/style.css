@@ -242,7 +242,7 @@ input:checked + .slider:before {
   }
   body {
     padding: 0 2%;
-    font-size: 10px;
+    font-size: 9px;
   }
   .row
   .field__input {
