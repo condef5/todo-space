@@ -87,6 +87,7 @@ function showHtml(arr) {
           >
         </div>
         <div>${task.description}</div>
+        <div>${task.creationDate}</div>
         <div>${task.dueDate}</div>
         <div>
           <input 
