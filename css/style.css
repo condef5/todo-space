@@ -285,3 +285,28 @@ input:checked + .slider:before {
     transform: translateX(15px);
   }
 }
+@media (min-width: 320px) and (max-width: 640px) {
+  .row {
+    flex-direction: column;
+  }
+  .description {
+    width: 100%;
+  }
+
+  .row div:nth-child(3) {
+    /* text-align: right; */
+  }
+
+  .field__button {
+    width: 100%;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .edit, .delete {
+    width: 20px;
+    height: 20px;
+  }
+}

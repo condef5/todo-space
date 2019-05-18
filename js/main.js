@@ -151,7 +151,7 @@ function showHtml(arr) {
         >
           ${task.description}
         </div>
-        <div>${task.creationDate}</div>
+        <div class="hide-mobile">${task.creationDate}</div>
         <div class="editable-input">
         ${
           task.id == taskId
@@ -174,14 +174,14 @@ function showHtml(arr) {
         <div>
           <svg 
             onclick="editTask(${task.id == taskId ? 0 : task.id})"
-            class="icon">
+            class="icon edit">
             <use xlink:href="${
               task.id == taskId ? '#icon-save' : '#icon-edit'
             }">
           </svg>
           <svg 
             onclick="taskDelete(${task.id})"
-            class="icon">
+            class="icon delete">
             <use xlink:href="#icon-trash">
           </svg>
         </div>
