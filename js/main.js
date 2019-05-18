@@ -41,10 +41,16 @@ function orderList(array, key, status) {
       return status == 1
         ? new Date(b[key]) - new Date(a[key])
         : new Date(a[key]) - new Date(b[key]);
-    } else {
+    } else if (key == 'priority' || key == 'complete') {
       return (a[key] < b[key] ? -1 : 1) * status;
+    } else {
+      return (complementTextOrder(a[key]) < complementTextOrder(b[key]) ? -1 : 1) * status;
     }
   });
+}
+
+function complementTextOrder(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 function saveTodo(event) {
