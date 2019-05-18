@@ -99,6 +99,11 @@ function updateTask(id, prop, value = '') {
 }
 
 function editTask(id, prop) {
+  if (id == 0) {
+    taskId = 0;
+    showHtml(todoList);
+    return;
+  }
   console.log(id);
   taskId = id;
   propTaskEdit = prop;
@@ -124,7 +129,7 @@ function showHtml(arr) {
 
   arr.forEach((task) => {
     html += `
-      <li class="todo__item">
+      <li class="todo__item ${task.id == taskId ? 'active' : ''}">
         <div>
           <input 
             type="checkbox"
@@ -162,9 +167,11 @@ function showHtml(arr) {
         </div>
         <div>
           <svg 
-            onclick="editTask(${task.id})"
+            onclick="editTask(${task.id == taskId ? 0 : task.id})"
             class="icon">
-            <use xlink:href="#icon-edit">
+            <use xlink:href="${
+              task.id == taskId ? '#icon-save' : '#icon-edit'
+            }">
           </svg>
           <svg 
             onclick="taskDelete(${task.id})"
