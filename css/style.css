@@ -74,8 +74,15 @@ h1 {
   background-color: black;
   color: white;
   border-radius: 5px;
-  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.39);
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0);
+  transition-property: all;
+  transition-duration: 0.75s;
+  transition-timing-function: ease-in-out;
+}
+
+.field__button:hover {
   cursor: pointer;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.39);
 }
 
 .text-right {
@@ -154,23 +161,33 @@ input:checked + .slider:before {
   font-size: 2em;
 }
 
-.dots {
-  text-shadow: 2px 2px transparent;
-  transition-property: all;
-  transition-duration: 1s;
-  transition-timing-function: ease-in-out;
-}
-
 .dots:hover {
   cursor: pointer;
-  text-shadow: 2px 2px #0076ff;
 }
 
 .dropdown-menu {
+  visibility: hidden;
+  position: absolute;
   list-style: none;
   font-size: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 5%;
+  background: #fff;
   padding: 0;
   margin: 15px;
+}
+
+.dots:hover ~ .dropdown-menu,
+.dropdown-menu:hover {
+  visibility: visible;
+}
+
+.sorting {
+  padding: 15px 10px;
+  background: #fff;
+  transition-property: all;
+  transition-duration: 0.75s;
+  transition-timing-function: ease-in-out;
 }
 
 .sorting:hover {
