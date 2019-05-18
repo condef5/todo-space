@@ -19,6 +19,10 @@ h1 {
   padding-bottom: 5px;
 }
 
+main {
+  margin: 5% 0px;
+}
+
 #formToDo {
   padding-bottom: 30px;
 }
@@ -44,6 +48,7 @@ h1 {
 .todo__header > div {
   width: 25%;
 }
+
 
 .row {
   display: flex;
@@ -88,13 +93,6 @@ h1 {
 
 .text-right {
   text-align: right;
-}
-
-thead .sorting {
-  background-image: url(../img/sort_both.png);
-  background-repeat: no-repeat;
-  background-position: center right;
-  cursor: pointer;
 }
 
 .switch {
@@ -233,4 +231,57 @@ input:checked + .slider:before {
   border-radius: 5px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ================================= */
+/* MEDIA QUERIES */
+@media (max-width: 1024px) {
+  header {
+    font-size: 12px;
+    margin: 5% 0px;
+  }
+  body {
+    padding: 0 2%;
+    font-size: 10px;
+  }
+  .row
+  .field__input {
+    width: 90%;
+    padding: 0.5em 0.25em;
+    display: inline;
+  }
+  .field
+  .date {
+    padding: 0.35em 0.25em;
+  }
+  .row {
+    margin: 5%;
+  }
+  .field
+  .field__button {
+    padding: 0.75em 0.75em;
+    margin-right: 5%;
+    border: none;
+  }
+  .field
+  .switch {
+    width: 40px;
+    height: 24px;
+    margin-top: 1.8em;
+  }
+  .field
+  .switch
+  .slider:before {
+    height: 25px;
+    width: 25px;
+    left: 0px;
+    bottom: 0px;
+    transition: 0.4s;
+  }
+
+  .field
+  .switch
+  input:checked + .slider:before {
+    transform: translateX(15px);
+  }
 }
