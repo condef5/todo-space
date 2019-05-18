@@ -1,5 +1,5 @@
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -44,6 +44,20 @@ h1 {
   width: 25%;
 }
 
+@media (max-width: 1024px) {
+  header {
+    font-size: 12px;
+    margin: 5% 0px;
+  }
+  body {
+    padding: 0 3%;
+  }
+  .field__input {
+    background-color: blue;
+    width: 60%;
+    padding: 0.5em 0.25em;
+  }
+}
 
 .row {
   display: flex;
@@ -118,7 +132,7 @@ h1 {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
