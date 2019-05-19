@@ -17,4 +17,10 @@
 
 ## Proposed Design
 
-![Mockup for app](./img/mockup.png)
+![Mockup for desktop](./img/mockup_desktop.png)
+![Mockup for Mobile](./img/mockup_mobile.png)
+
+## Edition and Deletion of tasks
+
+To **delete** task, click over the *Trashcan icon*.
+To **edit** a task, click over the *Pencil icon*, after that, the user can edit the fields *Description* and *Due Date*, to **Save** the changes, the user have to click **twice** over the *Save icon*
